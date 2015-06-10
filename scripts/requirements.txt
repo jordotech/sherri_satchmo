@@ -11,3 +11,4 @@ django-livesettings
 django-threaded-multihost
 django-caching-app-plugins
 django-keyedcache
+solid-i18n==1.1.0
