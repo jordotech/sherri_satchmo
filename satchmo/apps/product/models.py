@@ -323,6 +323,8 @@ class CategoryImage(models.Model):
     banner = ImageWithThumbnailField(verbose_name=_('Banner'),
         upload_to="__DYNAMIC__",
         name_field="_filename",
+        null=True,
+        blank=True,
         max_length=200) #Media root is automatically prepended
     caption = models.CharField(_("Optional caption"), max_length=100,
         null=True, blank=True)
