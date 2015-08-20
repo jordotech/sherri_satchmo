@@ -35,13 +35,6 @@ class CategoryImage_Inline(admin.TabularInline):
     formfield_overrides = {
         ImageWithThumbnailField : {'widget' : AdminImageWithThumbnailWidget},
     }
-class CategoryBanner_Inline(admin.TabularInline):
-    model = CategoryImage
-    extra = 0
-
-    formfield_overrides = {
-        ImageWithThumbnailField : {'widget' : AdminImageWithThumbnailWidget},
-    }
 
 class CategoryImageTranslation_Inline(admin.StackedInline):
     model = CategoryImageTranslation
@@ -154,7 +147,7 @@ class CategoryOptions(admin.ModelAdmin):
     list_display += ('name', '_parents_repr', 'is_active')
     list_display_links = ('name',)
     ordering = ['site', 'parent__id', 'ordering', 'name']
-    inlines = [CategoryAttributeInline, CategoryImage_Inline, CategoryBanner_Inline,]
+    inlines = [CategoryAttributeInline, CategoryImage_Inline]
     if get_l10n_setting('show_admin_translations'):
         inlines.append(CategoryTranslation_Inline)
     filter_horizontal = ('related_categories',)
