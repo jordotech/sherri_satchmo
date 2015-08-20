@@ -327,6 +327,7 @@ class CategoryImage(models.Model):
         name_field="_filename",
         null=True,
         blank=True,
+        help_text=_("Upload a 530X180px banner image for category pages."),
         max_length=200) #Media root is automatically prepended
     caption = models.CharField(_("Optional caption"), max_length=100,
         null=True, blank=True)
