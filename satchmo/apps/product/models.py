@@ -319,6 +319,8 @@ class CategoryImage(models.Model):
     picture = ImageWithThumbnailField(verbose_name=_('Picture'),
         upload_to="__DYNAMIC__",
         name_field="_filename",
+        null=True,
+        blank=True,
         max_length=200) #Media root is automatically prepended
     banner = ImageWithThumbnailField(verbose_name=_('Banner'),
         upload_to="__DYNAMIC__",
