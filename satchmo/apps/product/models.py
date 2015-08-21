@@ -130,7 +130,7 @@ class Category(models.Model):
     is_active = models.BooleanField(_("Active"), default=True, blank=True)
     related_categories = models.ManyToManyField('self', blank=True, null=True,
         verbose_name=_('Related Categories'), related_name='related_categories')
-    collection = models.BooleanField(_("Collection Piece"), default=True, help_text=_("Mark as a collection item."))
+    collection = models.BooleanField(_("Collection Piece"), default=False, help_text=_("Mark as a collection item."))
 
     objects = CategoryManager()
 
