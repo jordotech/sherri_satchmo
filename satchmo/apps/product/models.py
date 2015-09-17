@@ -131,6 +131,7 @@ class Category(models.Model):
     related_categories = models.ManyToManyField('self', blank=True, null=True,
         verbose_name=_('Related Categories'), related_name='related_categories')
     collection = models.BooleanField(_("Collection Piece"), default=False, help_text=_("Mark as a collection item."))
+    app_collection = models.BooleanField(_("Mobile App Collection"), default=False, help_text=_("Show this collection on the iphone app."))
 
     objects = CategoryManager()
 
