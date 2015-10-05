@@ -132,7 +132,7 @@ class Category(models.Model):
         verbose_name=_('Related Categories'), related_name='related_categories')
     collection = models.BooleanField(_("Collection Piece"), default=False, help_text=_("Mark as a collection item."))
     app_collection = models.BooleanField(_("Mobile App Collection"), default=False, help_text=_("Show this collection on the iphone app."))
-    app_promo_text = models.CharField(_("App Promo Text"), max_length=200, help_text="Short text to show on mobile app collection page.")
+    app_promo_text = models.CharField(_("App Promo Text"), max_length=200, null=True, blank=True, help_text="Short text to show on mobile app collection page.")
     objects = CategoryManager()
 
     def _get_mainImage(self):
