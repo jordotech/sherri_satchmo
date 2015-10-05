@@ -132,7 +132,7 @@ class Category(models.Model):
         verbose_name=_('Related Categories'), related_name='related_categories')
     collection = models.BooleanField(_("Collection Piece"), default=False, help_text=_("Mark as a collection item."))
     app_collection = models.BooleanField(_("Mobile App Collection"), default=False, help_text=_("Show this collection on the iphone app."))
-
+    app_promo_text = models.CharField(_("App Promo Text"), max_length=200, help_text="Short text to show on mobile app collection page.")
     objects = CategoryManager()
 
     def _get_mainImage(self):
@@ -331,6 +331,13 @@ class CategoryImage(models.Model):
         null=True,
         blank=True,
         help_text=_("Upload a 530X180px banner image for category pages."),
+        max_length=200) #Media root is automatically prepended
+    app_banner = ImageWithThumbnailField(verbose_name=_('App Banner'),
+        upload_to="__DYNAMIC__",
+        name_field="_filename",
+        null=True,
+        blank=True,
+        help_text=_("Special iphone banner"),
         max_length=200) #Media root is automatically prepended
     caption = models.CharField(_("Optional caption"), max_length=100,
         null=True, blank=True)
