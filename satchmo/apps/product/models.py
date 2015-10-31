@@ -1526,7 +1526,7 @@ class ProductImage(models.Model):
         null=True, blank=True)
     sort = models.IntegerField(_("Sort Order"), default=0)
     hash = models.CharField(_("Sherri Hash"), max_length=100,
-        null=True, blank=True, editable=False, help_text=_("Hash from external db to help identify imported images"))
+        null=True, blank=True, help_text=_("Hash from external db to help identify imported images"))
     def translated_caption(self, language_code=None):
         return lookup_translation(self, 'caption', language_code)
 
