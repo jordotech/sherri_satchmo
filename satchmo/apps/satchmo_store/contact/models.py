@@ -135,7 +135,11 @@ class ContactManager(models.Manager):
 
         return contact
 
-
+OCCUPATION_CHOICES = (
+    ('Student', _('Student')),
+    ('Professional', _('Professional')),
+    ('Other', _('Other')),
+)
 class Contact(models.Model):
     """
     A customer, supplier or any individual that a store owner might interact
@@ -151,7 +155,8 @@ class Contact(models.Model):
     email = models.EmailField(_("Email"), blank=True, max_length=75)
     notes = models.TextField(_("Notes"), max_length=500, blank=True)
     create_date = models.DateField(_("Creation date"))
-
+    occupation = models.CharField(_("Occupation"), choices=OCCUPATION_CHOICES,
+        max_length=20, blank=True)
     objects = ContactManager()
 
     def _get_full_name(self):
