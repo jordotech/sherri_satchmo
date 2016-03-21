@@ -693,7 +693,7 @@ class Order(models.Model):
     time_stamp = models.DateTimeField(_("Timestamp"), blank=True, null=True)
     status = models.CharField(_("Status"), max_length=20, choices=ORDER_STATUS,
         blank=True, help_text=_("This is set automatically."))
-
+    tracking = models.CharField(_("Tracking"), max_length=255, blank=True, null=True, help_text="Paste a shipping tracking number.")
     objects = OrderManager()
 
     def __unicode__(self):
